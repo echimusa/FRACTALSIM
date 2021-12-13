@@ -1,0 +1,86 @@
+#***************************************************************************************************
+#				PARAMETER LIST
+#  			(Order of entries should be maintained)
+#****************************************************************************************************
+
+#---------------------------------------------------------------------------------------
+# Input folder (specify full path, should contain all input files) 
+#---------------------------------------------------------------------------------------
+infolder:/mnt/lustre/users/jmugo/FractalSIM/
+
+#---------------------------------------------------------------------------------------
+# Simulation Options
+#---------------------------------------------------------------------------------------
+homogenous:NO
+admixture:YES
+disease:YES
+selection:NO
+EQTLs:YES
+
+#--------------------------------------------------------------------------------------
+# SNPs and Genetic map file : Compulsory for any simulation options
+#--------------------------------------------------------------------------------------
+Fsnp:SNPS/SET2/CEU2.snps
+Fgenetic_map:genetic_map_b37/genetic_map_chr2_combined_b37.txt
+Ffitness:simulation_scripts/fitness_file.txt
+
+
+#--------------------------------------------------------------------------------------
+# Homogeneous simulation options
+#--------------------------------------------------------------------------------------
+Fhap:CEU.2.haps
+samples_to_add:500
+
+
+#---------------------------------------------------------------------------------------
+# Admixture simulation  options for both single-point & multi-point 
+# (maintain the order of parameter entry)
+#---------------------------------------------------------------------------------------
+pre_admixture_simulation:YES
+pre_admix_option_file:simulation_scripts/pre_admix_2way_chr2.txt
+
+admix_single_point:YES
+admix_multi_point:NO
+multi_point_paraFile:simulation_scripts/admix.txt
+
+post_admix_selection:NO
+post_admix_disease:NO
+post_admix_sim_sample_size:1000
+
+parental_files:CEU/SET2/CEU2.haps,YRI/SET2/YRI2.haps
+anc_label:CEU,YRI
+
+
+#---------------------------------------------------------------------------------------
+# Single point admixture simulation options
+#---------------------------------------------------------------------------------------
+anc_proportions:0.20,0.80
+samples_to_simulate:1000
+generations_to_simulate:10
+
+
+
+#--------------------------------------------------------------------------------------
+# Disease options for Homogeneous & post-admixture selection simulation 
+# (parameter order should be maintained)
+#--------------------------------------------------------------------------------------
+null_model:NO
+causal_model:YES
+
+no_of_cases:2500
+no_of_controls:2500
+
+disease_SNPs_position:119924776
+hete_homozygous_risk:2.5004,0.094
+
+#-----------------------------------------------------------------------------------------
+# EQTLs simulation option
+#-----------------------------------------------------------------------------------------
+SNP_gene_file:simulation_scripts/Gene_POS2.txt
+G-G_interaction_file:simulation_scripts/GG_interaction.txt
+
+#-----------------------------------------------------------------------------------------
+#Output folder
+#-----------------------------------------------------------------------------------------
+outfolder:2WAY/CHR2/
+
